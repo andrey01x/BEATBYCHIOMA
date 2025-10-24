@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BEATS BY CHIOMA | Makeup art Collection</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;500&display=swap" rel="stylesheet">
+  <style>
+    /* RESET */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f8f8f8;
+      color: #111;
+      overflow-x: hidden;
+    }
+
+    /* HEADER */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 70px;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(6px);
+      border-bottom: 1px solid #eee;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 3rem;
+      z-index: 10;
+    }
+
+    /* 🔥 Replace text header with centered logo */
+ header .logo {
+  position: absolute;
+  top: calc(50% + 12px); /* lowered by 0.04 inch */
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 180px;
+  object-fit: contain;
+  max-width: 100%;
+}
+
+
+
+
+
+
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #333;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: color 0.3s;
+    }
+
+    nav a:hover { color: black; }
+    /* ✨ Instagram Link Shimmer Effect */
+nav a[href*="instagram.com"]:hover {
+  background: linear-gradient(90deg, #f6c9a1, #a86b45, #f6c9a1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmerLink 2s linear infinite;
+  text-shadow: 0 0 8px rgba(168, 107, 69, 0.5);
+}
+
+@keyframes shimmerLink {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+
+    /* HERO GALLERY */
+    main {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      margin-top: 70px; /* offset header */
+    }
+
+    section {
+      position: relative;
+      height: 90vh;
+      background-size: cover;
+      background-position: center;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.6s ease;
+    }
+
+    section:hover { transform: scale(1.02); }
+
+    section::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.6), rgba(0,0,0,0));
+      z-index: 1;
+    }
+
+    .overlay {
+      position: absolute;
+      bottom: 20%;
+      width: 100%;
+      text-align: center;
+      color: #fff;
+      z-index: 2;
+    }
+
+    .overlay h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+    }
+
+    .overlay p {
+      font-size: 0.9rem;
+      opacity: 0.85;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.8rem;
+      color: #666;
+      background: white;
+      border-top: 1px solid #eee;
+    }
+
+    /* 💬 & 📞 Floating Buttons — Peach Brown Glow */
+.whatsapp-float, .call-float {
+  position: fixed;
+  bottom: 25px;
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  z-index: 1000;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: linear-gradient(135deg, #f6c9a1, #a86b45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 15px rgba(168, 107, 69, 0.6);
+}
+
+.whatsapp-float {
+  left: 25px;
+  animation: glowPeachBrown 2s ease-in-out infinite;
+}
+
+.call-float {
+  left: 110px;
+  animation: glowPeachBrown 2s ease-in-out infinite;
+}
+
+/* Icons inside (WhatsApp stays green) */
+.whatsapp-float img {
+  width: 60%;
+  height: 60%;
+  filter: none; /* keep WhatsApp’s natural green */
+}
+
+.call-float img {
+  width: 60%;
+  height: 60%;
+  filter: brightness(0) invert(1); /* white call icon */
+}
+
+/* Hover Effects */
+.whatsapp-float:hover,
+.call-float:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 25px rgba(168, 107, 69, 0.9);
+}
+
+/* Subtle glowing animation */
+@keyframes glowPeachBrown {
+  0%, 100% { box-shadow: 0 0 12px rgba(168, 107, 69, 0.4); }
+  50% { box-shadow: 0 0 25px rgba(168, 107, 69, 0.9); }
+}
+
+/* Tooltips — updated to match theme */
+.whatsapp-float::after,
+.call-float::after {
+  position: absolute;
+  left: 80px;
+  top: 50%;
+  transform: translateY(-45%) translateX(-10px);
+  background: linear-gradient(90deg, #f6c9a1, #a86b45);
+  color: white;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.8rem;
+  padding: 8px 12px;
+  border-radius: 8px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  box-shadow: 0 0 10px rgba(0,0,0,0.25);
+  transition: all 0.5s ease;
+  filter: drop-shadow(0 0 6px rgba(245,180,120,0.5));
+}
+
+.whatsapp-float::after { content: "Chat on WhatsApp"; }
+.call-float::after { content: "Call to Book Now"; }
+
+.whatsapp-float:hover::after,
+.call-float:hover::after {
+  opacity: 1;
+  transform: translateY(-65%) translateX(0);
+}
+
+
+
+
+    
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        height: auto;
+        padding: 1rem;
+      }
+      nav ul { gap: 1rem; flex-wrap: wrap; justify-content: center; }
+      section { height: 70vh; }
+      .overlay h2 { font-size: 1.4rem; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <!-- 🖼️ Centered Logo -->
+    <img src="/Users/kay/Downloads/hgvyvf5AE.jpg" alt="Beats by C Logo" class="logo">
+    <nav>
+      <ul>
+        <li><a href="#">Women</a></li>
+        <li><a href="#">Events</a></li>
+        <li><a href="https://www.instagram.com/beats_byc_/" target="_blank">Make up Collections</a></li>
+
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section style="background-image: url(/Users/kay/Downloads/SEESEEIMG_2446.jpg)">
+      <div class="overlay">
+        <h2>Elegance</h2>
+        <p>For the big shows</p>
+      </div>
+    </section>
+
+    <section style="background-image: url(/Users/kay/Desktop/KURO.PNG)">
+      <div class="overlay">
+        <h2>Classic</h2>
+        <p>Have your presence felt in any room</p>
+      </div>
+    </section>
+
+    <section style="background-image: url(/Users/kay/Desktop/CHINASA.jpg)">
+      <div class="overlay">
+        <h2>Casual makeups</h2>
+        <p>Feel special effortlessly</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © 2025 Beats by Chioma — Art with Elegance.
+  </footer>
+
+  <!-- 💬 WhatsApp Floating Button -->
+  <a
+    href="https://wa.me/+2348063503976?text=Hi%20Chioma!%20I'm%20interested%20in%20your%20makeup%20services."
+    class="whatsapp-float"
+    target="_blank"
+    aria-label="BOOK us on WhatsApp"
+  >
+    <img
+      src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
+      alt="Chat with Chioma on WhatsApp"
+    />
+  </a>
+  
+ <!-- 📞 Call (white icon, verified transparent background) -->
+<a href="tel:+1802874737" class="call-float" aria-label="Call to book now">
+  <img src="https://pngimg.com/uploads/phone/phone_PNG49056.png" 
+       alt="Call to Book Now" />
+</a>
+
+</body>
+</html>
